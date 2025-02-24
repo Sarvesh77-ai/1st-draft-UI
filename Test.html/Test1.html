@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy Birthday!</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
@@ -44,11 +44,10 @@
             font-size: 1.5em;
             margin-top: 20px;
             padding: 20px;
-            background: black; /* Black background */
+            background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
             border-radius: 10px;
             position: relative; /* Added for positioning the "Next" button */
-            color: white; /* White text for better contrast */
-            font-family: 'Comic Neue', cursive; /* Casual font */
+            color: #333; /* Darker text for better contrast */
         }
         .cake-message {
             margin-bottom: 30px;
@@ -134,7 +133,7 @@
         .next-btn {
             padding: 8px 16px; /* Smaller padding */
             font-size: 1em; /* Smaller font size */
-            background: #000000; /* Black for the next button */
+            background: #000000; /* Blue for the next button */
             color: white;
             border: none;
             cursor: pointer;
@@ -148,24 +147,6 @@
         .next-btn:hover {
             transform: translateY(-5px);
             background: #000203;
-        }
-        .home-btn {
-            padding: 8px 16px; /* Smaller padding */
-            font-size: 1em; /* Smaller font size */
-            background: black; /* Black background */
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 10px;
-            position: absolute; /* Positioned absolutely */
-            right: 20px; /* Aligned to the right */
-            bottom: 20px; /* Aligned to the bottom */
-            transition: transform 0.3s ease-in-out;
-            display: none; /* Hidden by default */
-        }
-        .home-btn:hover {
-            transform: translateY(-5px);
-            background: #333; /* Darker black on hover */
         }
         .balloon {
             position: absolute;
@@ -210,15 +191,14 @@
             font-size: 1.5em;
             margin-top: 20px;
             padding: 20px;
-            background: black; /* Black background */
+            background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
             border-radius: 10px;
-            color: white; /* White text for better contrast */
-            font-family: 'Comic Neue', cursive; /* Casual font */
+            color: #333; /* Darker text for better contrast */
         }
     </style>
 </head>
 <body>
-    <h1>Happy Birthday, <span id="name">Amisha</span>! 🎉</h1>
+    <h1>Happy Birthday, <span id="name">[Her Name]</span>! 🎉</h1>
     <button class="surprise-btn" onclick="showSurprise()">Unwrap the Gift! 🎁</button>
     <div id="surprise" class="hidden-message">
         May your day be filled with love, laughter, and everything that makes you happy! 🎂
@@ -239,7 +219,6 @@
         <button class="blow-btn" onclick="blowCandles()">Blow the Candles! 🎂💨</button>
         <button class="next-btn" onclick="showBlessedMessage()">Next</button>
         <div class="blessed-message">Have a blessed day and year!</div>
-        <button class="home-btn" onclick="goHome()">Home</button>
     </div>
     <audio id="birthdaySong" src="https://www.soundjay.com/holidays/happy-birthday-song-1.mp3" loop></audio>
     <script>
@@ -287,18 +266,8 @@
             // Hide the "Next" button
             document.querySelector(".next-btn").style.display = "none";
 
-            // Show the blessed message and "Home" button
+            // Show the blessed message
             document.querySelector(".blessed-message").style.display = "block";
-            document.querySelector(".home-btn").style.display = "block";
-        }
-
-        function goHome() {
-            // Reset everything to the initial state
-            document.getElementById("surprise").style.display = "none";
-            document.querySelector(".surprise-btn").style.display = "none"; // Hide the "Unwrap the Gift!" button
-            document.querySelector(".home-btn").style.display = "block"; // Show the "Home" button
-            document.querySelector(".blessed-message").style.display = "none";
-            clickCount = 0; // Reset click count
         }
 
         function createBalloons() {
